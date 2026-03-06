@@ -1,21 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int GetSpeedLimit(int speed_limit);
+int GetDriverSpeed(int driver_speed);
+
 int main() {
   int speed_limit, driver_speed, fine = 0;
-  char input[20];
 
-  // Get user input for speed limit
-  printf("Enter the speed limit: ");
-  if (fgets(input, sizeof(input), stdin)) {
-    sscanf(input, "%d", &speed_limit);
-  }
-
-  // Get user input for driver's speed
-  printf("Enter the driver's speed: ");
-  if (fgets(input, sizeof(input), stdin)) {
-    sscanf(input, "%d", &driver_speed);
-  }
+  speed_limit = GetSpeedLimit(speed_limit);
+  driver_speed =  GetDriverSpeed(driver_speed);
 
   // Determine if the driver is speeding
   if (driver_speed > speed_limit) {
@@ -36,4 +29,22 @@ int main() {
   }
 
   return 0;
+}
+int GetSpeedLimit(int speed_limit)
+{
+  char input[20];
+  printf("Enter the speed limit: ");
+  if (fgets(input, sizeof(input), stdin)) {
+    sscanf(input, "%d", &speed_limit);
+  }
+  return speed_limit;
+}
+int GetDriverSpeed(int driver_speed)
+{
+  char input[20];
+  printf("Enter the driver's speed: ");
+  if (fgets(input, sizeof(input), stdin)) {
+    sscanf(input, "%d", &driver_speed);
+  }
+  return driver_speed;
 }

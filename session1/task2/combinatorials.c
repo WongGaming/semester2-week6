@@ -15,8 +15,17 @@ int factorial(int n) {
 
   return n * factorial(n - 1);
 }
+int combinations(int n, int r) {
+  return factorial(n) / (factorial(r) * factorial(n - r));
+}
+int permutations(int n, int r) {
+  return factorial(n) / factorial(n - r);
+}
 
 int main(int argc, char **argv) {
+  int n;
+  int r;
+  char character;
   /*
   The program should accept a command line argument as follows:
   ./combinatorials n C r
@@ -40,4 +49,24 @@ int main(int argc, char **argv) {
   You should try and use functions to write your program.
 
   */
+
+  if (argc < 4)
+  {
+    print("Make the input in the format 'integer' 'c or p' 'integer' ");
+  }
+  else
+  {
+    n = argv[1];
+    character = tolower(argv[2]);
+    r = argv[3];
+    if (character == 'c')
+    {
+      combinations(n, r);
+    }
+    else if (character == 'p')
+    {
+      permutations(n, r);
+    }
+    
+  }
 }
