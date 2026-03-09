@@ -39,6 +39,15 @@ void test_obvious_palindrome(void) {
  * ============================================================ */
 
 
+void test_single_char(void) {
+    TEST_CHECK(is_palindrome("a") == 1);
+    TEST_MSG("Expected 'a' to be a palindrome");
+}
+
+void test_empty_string(void) {
+    TEST_CHECK(is_palindrome("") == 1);
+    TEST_MSG("Expected empty string to be a palindrome");
+}
 
 /* ============================================================
  * TEST_LIST - Register all your tests here
@@ -52,6 +61,8 @@ TEST_LIST = {
      * { "single character", test_single_char },
      * { "empty string", test_empty_string },
      */
+    { "single character", test_single_char },
+    { "empty string", test_empty_string },
     { NULL, NULL }
 };
 
